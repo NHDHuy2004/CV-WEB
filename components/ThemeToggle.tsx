@@ -32,7 +32,8 @@ export function ThemeToggle() {
     return (
       <button
         type="button"
-        className="inline-flex h-10 w-10 items-center justify-center rounded-full border bg-white/70 text-slate-700 shadow-sm dark:bg-slate-900/70 dark:text-slate-200"
+        className="inline-flex h-10 w-10 items-center justify-center rounded-full border text-[color:var(--text)]"
+        style={{ background: "color-mix(in srgb, var(--bg-elevated) 88%, transparent)" }}
         aria-label="Đang tải chủ đề"
       >
         <Sun size={18} />
@@ -44,7 +45,8 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={handleToggle}
-      className="inline-flex h-10 w-10 items-center justify-center rounded-full border bg-white/70 text-slate-700 shadow-sm transition-transform duration-300 hover:scale-105 dark:bg-slate-900/70 dark:text-slate-100"
+      className="inline-flex h-10 w-10 items-center justify-center rounded-full border text-[color:var(--text)] shadow-sm transition-transform duration-300 hover:scale-105"
+      style={{ background: "color-mix(in srgb, var(--bg-elevated) 88%, transparent)" }}
       aria-label={theme === "dark" ? "Chuyển sang giao diện sáng" : "Chuyển sang giao diện tối"}
       title={theme === "dark" ? "Light mode" : "Dark mode"}
     >

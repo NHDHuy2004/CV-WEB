@@ -11,19 +11,20 @@ export function Contact() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.25 }}
       transition={{ duration: 0.45, ease: "easeOut" }}
-      className="glass rounded-3xl border p-5 shadow-soft sm:p-8"
+      className="glass grain-card rounded-3xl p-5 sm:p-8"
       id="contact"
     >
-      <h2 className="mb-5 text-xl font-semibold sm:text-2xl">Liên hệ</h2>
+      <h2 className="section-title">Liên hệ</h2>
       <div className="space-y-3">
         {contacts.map((contact) => {
           const Icon = contact.icon;
           return (
             <motion.div
               key={contact.label}
-              whileHover={{ scale: 1.03 }}
+              whileHover={{ y: -3 }}
               transition={{ duration: 0.35, ease: "easeOut" }}
-              className="rounded-2xl border bg-white/80 p-4 shadow-sm transition-shadow hover:shadow-soft dark:bg-slate-900/75"
+              className="rounded-2xl border p-4 shadow-sm transition-shadow hover:shadow-soft"
+              style={{ background: "color-mix(in srgb, var(--bg-elevated) 86%, transparent)" }}
             >
               <Link
                 href={contact.href}

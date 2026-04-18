@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
-  variable: "--font-inter"
+  variable: "--font-body",
+  weight: ["400", "500", "600", "700"]
+});
+
+const lora = Lora({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-display",
+  weight: ["500", "600", "700"]
 });
 
 export const metadata: Metadata = {
@@ -19,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>{children}</body>
+      <body className={`${beVietnam.variable} ${lora.variable} font-body antialiased`}>{children}</body>
     </html>
   );
 }

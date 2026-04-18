@@ -14,17 +14,22 @@ export function Hero() {
       initial={{ opacity: 0, y: 36 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
-      className="glass rounded-3xl border p-5 shadow-soft sm:p-8"
+      transition={{ duration: 0.55, ease: "easeOut" }}
+      className="glass grain-card rounded-3xl p-5 sm:p-8"
       id="hero"
     >
+      <div className="mb-5 flex flex-wrap items-center gap-2 sm:mb-7">
+        <span className="soft-pill">Open to internship</span>
+        <span className="soft-pill border-dashed">Frontend Developer</span>
+      </div>
+
       <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           whileHover={{ scale: 1.04 }}
-          className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white/70 shadow-soft sm:h-44 sm:w-44"
+          className="relative h-32 w-32 overflow-hidden rounded-[2rem] border-4 border-white/70 shadow-soft sm:h-44 sm:w-44"
         >
           <Image
             src={avatarSrc}
@@ -38,9 +43,12 @@ export function Hero() {
         </motion.div>
 
         <div className="space-y-2">
-          <h1 className="text-2xl font-bold tracking-tight sm:text-4xl">{profile.fullName}</h1>
-          <p className="text-base font-medium text-[color:var(--primary)] sm:text-lg">{profile.title}</p>
+          <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">{profile.fullName}</h1>
+          <p className="text-base font-semibold uppercase tracking-[0.1em] text-[color:var(--primary)] sm:text-sm">{profile.title}</p>
           <p className="text-sm text-[color:var(--muted)] sm:text-base">{profile.major}</p>
+          <a href="#contact" className="accent-button mt-3">
+            Kết nối ngay
+          </a>
         </div>
       </div>
 
@@ -64,9 +72,10 @@ function StatCard({
 }) {
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ y: -4 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="rounded-2xl border bg-white/75 p-3 shadow-sm transition-shadow hover:shadow-soft dark:bg-slate-900/70"
+      className="rounded-2xl border p-3 transition-shadow hover:shadow-soft"
+      style={{ background: "color-mix(in srgb, var(--bg-elevated) 85%, transparent)" }}
     >
       <div className="mb-1 flex items-center gap-2 text-sm text-[color:var(--muted)]">
         <Icon size={16} />
