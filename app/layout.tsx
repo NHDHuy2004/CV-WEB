@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Be_Vietnam_Pro, Lora } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/src/components/navbar";
+import Footer from "@/src/components/footer";
 
 const beVietnam = Be_Vietnam_Pro({
   subsets: ["latin", "vietnamese"],
@@ -15,8 +17,8 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Nguyễn Hồ Đức Huy | CV",
-  description: "CV website cá nhân của Nguyễn Hồ Đức Huy"
+  title: "Portfolio — Nguyễn Văn A",
+  description: "Website portfolio cá nhân — CTK46"
 };
 
 export default function RootLayout({
@@ -26,7 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="vi" suppressHydrationWarning>
-      <body className={`${beVietnam.variable} ${lora.variable} font-body antialiased`}>{children}</body>
+      <body className={`${beVietnam.variable} ${lora.variable} font-body antialiased min-h-screen flex flex-col`}>
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
