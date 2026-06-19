@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getPostBySlug, posts } from "@/src/data/posts";
 import LikeButton from "@/src/components/like-button";
+import { ArrowLeft, Calendar, Tag } from "lucide-react";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -18,26 +19,36 @@ export default async function BlogPostPage({
   }
 
   return (
-    <div>
+    <div className="space-y-6">
       <Link
         href="/blog"
-        className="text-blue-600 hover:underline text-sm mb-6 inline-block"
+        className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[color:var(--primary)] hover:underline mb-2"
       >
-        ← Quay lại danh sách
+        <ArrowLeft size={14} /> Quay lại danh sách
       </Link>
-      <article>
-        <div className="flex items-center gap-3 mb-4">
-          <span className="bg-blue-100 text-blue-700 text-xs px-2 py-1 rounded">
+      
+      <article className="space-y-6">
+        <div className="flex flex-wrap items-center gap-3 text-xs border-b border-[color:var(--border)]/60 pb-4">
+          <span className="inline-flex items-center gap-1 bg-[color:var(--primary)]/15 text-[color:var(--primary)] text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <Tag size={12} />
             {post.category}
           </span>
-          <span className="text-sm text-gray-400">{post.date}</span>
+          <span className="flex items-center gap-1 text-[color:var(--muted)]">
+            <Calendar size={12} />
+            {post.date}
+          </span>
         </div>
-        <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-        <div className="prose max-w-none text-gray-700 whitespace-pre-line mb-8">
+
+        <h1 className="text-2xl sm:text-3xl font-extrabold text-[color:var(--text)] leading-tight">
+          {post.title}
+        </h1>
+
+        <div className="prose dark:prose-invert max-w-none text-sm sm:text-base text-[color:var(--muted)] whitespace-pre-line leading-relaxed">
           {post.content}
         </div>
-        <div className="border-t pt-6">
-          <LikeButton />
+
+        <div className="border-t border-[color:var(--border)]/60 pt-6">
+          <LikeButton slug={slug} />
         </div>
       </article>
     </div>

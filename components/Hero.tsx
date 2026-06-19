@@ -42,13 +42,25 @@ export function Hero() {
           />
         </motion.div>
 
-        <div className="space-y-2">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-5xl">{profile.fullName}</h1>
+        <div className="space-y-2.5">
+          <p className="text-xs font-bold uppercase tracking-widest text-[color:var(--muted)]">Xin chào! 👋 Tôi là</p>
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-semibold tracking-tight break-words line-clamp-2">{profile.fullName}</h1>
           <p className="text-base font-semibold uppercase tracking-[0.1em] text-[color:var(--primary)] sm:text-sm">{profile.title}</p>
-          <p className="text-sm text-[color:var(--muted)] sm:text-base">{profile.major}</p>
-          <a href="#contact" className="accent-button mt-3">
-            Kết nối ngay
-          </a>
+          <p className="text-sm text-[color:var(--muted)] sm:text-base">{profile.major} &bull; Sinh viên năm cuối</p>
+          <p className="text-sm font-medium text-[color:var(--text)] bg-[color:var(--bg-elevated)] rounded-full px-3 py-1.5 inline-block">
+            📦 Built 2 projects • 500+ hours hands-on coding
+          </p>
+          <div className="flex flex-wrap gap-3 pt-2">
+            <a href="#projects" className="accent-button text-xs sm:text-sm">
+              Xem dự án
+            </a>
+            <a 
+              href="#contact" 
+              className="inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs sm:text-sm font-semibold border border-[color:var(--primary)]/40 hover:bg-[color:var(--primary)]/5 transition-all hover:-translate-y-0.5 duration-300"
+            >
+              Liên hệ & CV
+            </a>
+          </div>
         </div>
       </div>
 
@@ -77,11 +89,11 @@ function StatCard({
       className="rounded-2xl border p-3 transition-shadow hover:shadow-soft"
       style={{ background: "color-mix(in srgb, var(--bg-elevated) 85%, transparent)" }}
     >
-      <div className="mb-1 flex items-center gap-2 text-sm text-[color:var(--muted)]">
-        <Icon size={16} />
-        <span>{label}</span>
+      <div className="mb-1 flex items-center gap-2 text-sm text-[color:var(--muted)] min-w-0">
+        <Icon size={16} className="flex-shrink-0" />
+        <span className="truncate">{label}</span>
       </div>
-      <p className="font-semibold text-[color:var(--text)]">{value}</p>
+      <p className="font-semibold text-[color:var(--text)] break-words line-clamp-2 text-sm">{value}</p>
     </motion.div>
   );
 }

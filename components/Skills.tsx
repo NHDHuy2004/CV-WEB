@@ -25,11 +25,11 @@ export function Skills() {
               className="rounded-2xl border p-4 shadow-sm transition-shadow hover:shadow-soft"
               style={{ background: "color-mix(in srgb, var(--bg-elevated) 86%, transparent)" }}
             >
-              <div className="flex items-center gap-3">
-                <span className="rounded-xl bg-[color:var(--accent)]/25 p-2 text-[color:var(--primary)]">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="rounded-xl bg-[color:var(--accent)]/25 p-2 text-[color:var(--primary)] flex-shrink-0">
                   <Icon size={18} />
                 </span>
-                <p className="font-medium">{skill.name}</p>
+                <p className="font-medium break-words line-clamp-2 text-sm">{skill.name}</p>
               </div>
             </motion.article>
           );

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { education, traits } from "@/data/data";
+import { education, traits, profile } from "@/data/data";
 
 export function About() {
   const EducationIcon = education.icon;
@@ -17,6 +17,10 @@ export function About() {
     >
       <h2 className="section-title">Giới thiệu</h2>
 
+      <div className="mb-5 text-sm sm:text-base leading-relaxed text-[color:var(--muted)]">
+        <p>{profile.aboutText}</p>
+      </div>
+
       <div
         className="mb-5 rounded-2xl border p-4"
         style={{ background: "color-mix(in srgb, var(--bg-elevated) 88%, transparent)" }}
@@ -28,7 +32,10 @@ export function About() {
           <div>
             <p className="font-semibold">{education.university}</p>
             <p className="text-sm text-[color:var(--muted)]">
-              {education.status} - {education.major}
+              {education.status} &bull; {education.major}
+            </p>
+            <p className="text-xs text-[color:var(--muted)] mt-0.5">
+              {education.period} &bull; GPA: {education.gpa}
             </p>
           </div>
         </div>
@@ -45,11 +52,11 @@ export function About() {
               className="rounded-2xl border p-4 shadow-sm transition-shadow hover:shadow-soft"
               style={{ background: "color-mix(in srgb, var(--bg-elevated) 86%, transparent)" }}
             >
-              <div className="flex items-center gap-3">
-                <span className="rounded-xl bg-[color:var(--accent)]/25 p-2 text-[color:var(--primary)]">
+              <div className="flex items-center gap-3 min-w-0">
+                <span className="rounded-xl bg-[color:var(--accent)]/25 p-2 text-[color:var(--primary)] flex-shrink-0">
                   <Icon size={18} />
                 </span>
-                <span className="text-sm font-medium sm:text-base">{trait.title}</span>
+                <span className="text-sm font-medium sm:text-base break-words leading-snug">{trait.title}</span>
               </div>
             </motion.li>
           );

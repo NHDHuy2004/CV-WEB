@@ -4,31 +4,36 @@ export default function BlogLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="max-w-5xl mx-auto px-4 py-12">
-      <div className="flex gap-8">
-        {/* Nội dung chính */}
-        <div className="flex-1">{children}</div>
+    <main className="max-w-6xl mx-auto px-4 py-10 sm:px-6 lg:px-10">
+      <div className="flex flex-col md:flex-row gap-8 items-start">
+        {/* Main Content */}
+        <div className="flex-1 w-full glass grain-card rounded-3xl p-6 sm:p-8">
+          {children}
+        </div>
+        
         {/* Sidebar */}
-        <aside className="w-64 shrink-0">
-          <div className="bg-gray-50 rounded-lg p-4">
-            <h3 className="font-semibold mb-3">Danh mục</h3>
-            <ul className="space-y-2 text-sm text-gray-600">
-              <li className="hover:text-blue-600 cursor-pointer">
+        <aside className="hidden md:block w-64 shrink-0 glass grain-card rounded-3xl p-5">
+          <div className="space-y-4">
+            <h3 className="font-bold text-base text-[color:var(--text)] border-b border-[color:var(--border)] pb-2">
+              Danh mục
+            </h3>
+            <ul className="space-y-2.5 text-sm text-[color:var(--muted)]">
+              <li className="hover:text-[color:var(--primary)] cursor-pointer transition-colors">
                 Công nghệ
               </li>
-              <li className="hover:text-blue-600 cursor-pointer">
+              <li className="hover:text-[color:var(--primary)] cursor-pointer transition-colors">
                 Học tập
               </li>
-              <li className="hover:text-blue-600 cursor-pointer">
+              <li className="hover:text-[color:var(--primary)] cursor-pointer transition-colors">
                 Dự án cá nhân
               </li>
-              <li className="hover:text-blue-600 cursor-pointer">
+              <li className="hover:text-[color:var(--primary)] cursor-pointer transition-colors">
                 Cuộc sống
               </li>
             </ul>
           </div>
         </aside>
       </div>
-    </div>
+    </main>
   );
 }

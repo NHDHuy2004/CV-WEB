@@ -17,8 +17,8 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio — Nguyễn Văn A",
-  description: "Website portfolio cá nhân — CTK46"
+  title: "Portfolio — Nguyễn Hồ Đức Huy",
+  description: "Website portfolio cá nhân — CTK46 - Đại học Đà Lạt"
 };
 
 export default function RootLayout({
